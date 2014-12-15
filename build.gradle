@@ -1,0 +1,43 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile localGroovy()
+	compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+}
+
+task crawl(type:JavaExec) {
+	description "Crawl mvnrepository.com to look vertx modules"
+	
+	classpath = sourceSets.main.runtimeClasspath
+	
+	main = "io.vertx.componentdiscovery.crawling.MavenCentralCrawler"
+}
+
+task download(type:JavaExec) {
+	description "Download missing or updated artifacts one by one"
+	
+	classpath = sourceSets.main.runtimeClasspath
+	
+	main = "io.vertx.componentdiscovery.crawling.ArtifactsDownloader"
+}
+
+task extractInfos(type:JavaExec) {
+	description "Extract complementary infos from the local (downloaded) mods/jar"
+	
+	classpath = sourceSets.main.runtimeClasspath
+	
+	main = "io.vertx.componentdiscovery.crawling.ExtractInfosFromMod"
+}
+
+task report(type:JavaExec) {
+	description "Generates an html report from export file"
+	
+	classpath = sourceSets.main.runtimeClasspath
+	
+	main = "io.vertx.componentdiscovery.reports.HtmlReporter"
+}

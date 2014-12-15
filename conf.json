@@ -1,0 +1,11 @@
+{
+	"EXPORT_FILE":"export/artifacts.json",
+	"HTML_REPORT":"export/services.html",
+	"ARTIFACTS_DIR":"export/artifacts/",
+	
+	
+	"CLASSIFIER":"mod",
+	"HOSTNAME":"http://search.maven.org",
+	"SEARCH_PATH":"/solrsearch/select",
+	"DL_PATH":"/remotecontent",
+}
