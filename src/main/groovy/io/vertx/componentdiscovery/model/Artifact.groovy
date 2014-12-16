@@ -19,7 +19,7 @@ class Artifact {
 
 	String groupId
 	String artifactId
-	SortedSet<Versions> versions
+	SortedSet<Version> versions
 	Set<String> tags
 	String md5
 	Set<String> availablePackages
